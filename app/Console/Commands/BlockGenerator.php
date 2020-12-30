@@ -6,7 +6,7 @@ use Illuminate\Console\Command;
 
 class BlockGenerator extends Command
 {
-   /**
+ /**
      * The name and signature of the console command.
      *
      * @var string
@@ -37,14 +37,19 @@ class BlockGenerator extends Command
      */
     public function handle()
     {
-        $number = [1 => '0', 2 => '00', 3 => '000'];
+        $diffculty = $this->argument('difficulty');
+        $number = ['0'];
+
+        for ($i=0; $i <$diffculty - 1 ; $i++) { 
+            $number[0] = $number[0] . '0';
+        }
         while(true)
         {
             $genesis = 'hdasvfhvgsja42358jbdafdas';
-            $nonce = rand(1,1000);
+            $nonce = rand(1,10000);
             $hash = md5($genesis . $nonce);
             echo $hash . "\n";
-            if (substr($hash, 0, $this->argument('difficulty')) == $number[$this->argument('difficulty')]) {
+            if (substr($hash, 0, $diffculty) === $number[0]) {
                 echo "Block genereated\n";
                 break;
             }
