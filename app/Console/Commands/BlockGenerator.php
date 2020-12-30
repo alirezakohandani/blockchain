@@ -11,7 +11,7 @@ class BlockGenerator extends Command
      *
      * @var string
      */
-    protected $signature = 'generate:block {difficulty : please set difficulty level. suggest(1,2,3).}';
+    protected $signature = 'generate:block {difficulty : please set difficulty level. suggestion(1,2,3).}';
 
     /**
      * The console command description.
