@@ -18,3 +18,6 @@ Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');
 
+Artisan::command('generate:block', function () {
+    $this->info("generating block");
+});
